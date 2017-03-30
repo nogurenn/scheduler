@@ -1,0 +1,14 @@
+@import "style.css";
+
+.booked {
+    cursor: pointer;
+    animation:flashBooked 0.5s ease;
+}
+
+.approve {
+    background: #3FC380;
+}
+
+.reject {
+    background: #C0392B;
+}

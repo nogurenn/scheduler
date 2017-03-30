@@ -7,10 +7,14 @@
 }
 
 .time-slot button {
-    padding:10px 20px;
+    padding: 1px;
     color: white;
     border-radius:5px;
     transition:0.3s ease all;
+}
+
+.time-slot > button {
+    padding:10px 20px;
 }
 
 .available {
