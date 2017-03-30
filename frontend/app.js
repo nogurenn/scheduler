@@ -23,8 +23,6 @@ angular.module('scheduleApp', ['firebase'])
     var syncObject = fb.$asObject();
     syncObject.$bindTo($scope, 'days');
 
-    var status_vals = ['Available', 'Pending', 'Booked'];
-
     // function to set the default data
     $scope.reset = function() {
         fb.$set({
@@ -33,11 +31,11 @@ angular.module('scheduleApp', ['firebase'])
                 slots: {
                     0900: {
                         time: '9:00am',
-                        status: status_vals[0],
+                        status: 'Available',
                     },
                     0110: {
                         time: '11:00am',
-                        status: status_vals[0],
+                        status: 'Available',
                     },
                 }
             },
@@ -46,14 +44,28 @@ angular.module('scheduleApp', ['firebase'])
                 slots: {
                     0900: {
                         time: '9:00am',
-                        status: status_vals[0],
+                        status: 'Available',
                     },
                     0110: {
                         time: '11:00am',
-                        status: status_vals[0],
+                        status: 'Available',
                     }
                 }
             }
         });
+    };
+
+    // Admin veto power to book
+    $scope.set_time = function(timeslot) {
+        timeslot.status = (timeslot.status !== 'Booked') ? "Booked" : "Available";
+    };
+
+    // Admin decision for pending
+    $scope.approve = function(timeslot) {
+        timeslot.status = "Booked";
+    };
+
+    $scope.reject = function(timeslot) {
+        timeslot.status = "Available";
     };
 });
