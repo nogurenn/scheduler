@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Angular Scheduling</title>
+    <title>ADMIN</title>
 
     <!-- CSS -->
     <!-- load Bootstrap and custom style.css -->
@@ -17,9 +17,9 @@
     <script src="app.js"></script>
 </head>
 <body>
-    <div class="container" ng-app="scheduleApp" ng-controller="mainController">
+    <div class="container" ng-app="scheduleApp" ng-controller="adminController">
         <div class="page-header text-center">
-            <h1>Schedule City</h1>
+            <h1>Schedule Admin</h1>
         </div>
 
         <div class="row times">
@@ -33,6 +33,10 @@
                 </div>
             </div>
         </div>
+
+        <p class="text-center">
+            <a href="#" class="btn btn-primary" ng-click="reset()">Reset</a>
+        </p>
     </div>
 </body>
 </html>
