@@ -19,12 +19,14 @@ angular.module('scheduleApp', ['firebase'])
                 slots: {
                     0900: {
                         time: '9:00am',
-                        booked: false
+                        booked: false,
+                        pending: false,
                     },
                     0110: {
                         time: '11:00am',
-                        booked: false
-                    }
+                        booked: false,
+                        pending: false,
+                    },
                 }
             },
             tuesday: {
@@ -32,11 +34,13 @@ angular.module('scheduleApp', ['firebase'])
                 slots: {
                     0900: {
                         time: '9:00am',
-                        booked: false
+                        booked: false,
+                        pending: false,
                     },
                     0110: {
                         time: '11:00am',
-                        booked: false
+                        booked: false,
+                        pending: false,
                     }
                 }
             }
