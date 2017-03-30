@@ -26,7 +26,7 @@
             <div class="col-xs-4 text-center" ng-repeat="day in days">
                 <h2>{{ day.name }}</h2>
                 <div class="time-slot" ng-repeat="slot in day.slots">
-                    <button id="{{ day.name }}-{{ $index }}" ng-disabled="slot.status === 'Booked'" ng-class="slot.status | lowercase" ng-click="">
+                    <button id="{{ day.name }}-{{ $index }}" ng-disabled="slot.status === 'Booked'" ng-class="slot.status | lowercase" ng-click="set_time(slot)">
                         {{ slot.time }}<br>
                         <span>{{ slot.status }}</span>
                     </button>

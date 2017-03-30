@@ -1,6 +1,6 @@
 // create our angular module and inject firebase
 angular.module('scheduleApp', ['firebase'])
-.CONSTANT("FIREBASE_URL", "https://burning-torch-3627.firebaseio.com/")
+.constant("FIREBASE_URL", "https://burning-torch-3627.firebaseio.com/")
 // create our main controller and get access to firebase
 .controller('mainController', function($scope, FIREBASE_URL, $firebase) {
     var ref = new Firebase(FIREBASE_URL + "days");
@@ -9,6 +9,10 @@ angular.module('scheduleApp', ['firebase'])
     // sync as object (three-way data binding)
     var syncObject = fb.$asObject();
     syncObject.$bindTo($scope, 'days');
+
+    $scope.set_time = function(timeslot) {
+        timeslot.status = (timeslot.status === 'Available') ? "Pending" : "Available";
+    };
 })
 
 .controller('adminController', function($scope, FIREBASE_URL, $firebase) {
@@ -19,7 +23,6 @@ angular.module('scheduleApp', ['firebase'])
     var syncObject = fb.$asObject();
     syncObject.$bindTo($scope, 'days');
 
-    // status values
     var status_vals = ['Available', 'Pending', 'Booked'];
 
     // function to set the default data
